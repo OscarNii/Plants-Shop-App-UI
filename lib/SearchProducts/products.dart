@@ -1,6 +1,10 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:animate_do/animate_do.dart';
+import 'package:intl/intl.dart';
+
+import '../Plants/Plants.dart';
 
 class Products extends StatelessWidget {
   const Products({super.key});
@@ -8,11 +12,15 @@ class Products extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 230, 229, 229),
+      extendBody: true,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: Text("Search Products"),
         //        leading: IconButton(),
         actions: [
           CircleAvatar(
+            radius: 40,
             backgroundColor: Colors.blueAccent,
             child: IconButton(
               onPressed: () {},
@@ -21,27 +29,64 @@ class Products extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        margin: EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.circular(20.0),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  height: 75,
+                  width: 330,
+                  child: TextField(
+                    style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                      labelText: "Search Plants",
+                      labelStyle: TextStyle(color: Colors.black),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.search_off_rounded,
+                        color: Colors.black,
+                      ),
+                      hintMaxLines: 4,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.grey,
+                    child: Icon(
+                      Icons.settings,
+                      color: Colors.black,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 20),
+            Text(
+              "Found",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+              ),
+            ),
+            Text(
+              "10 Results",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+              ),
+            ),
+            Plants(),
+          ],
         ),
-        child: TextField(
-          decoration: InputDecoration(
-            hintText: 'Plants...',
-            contentPadding: EdgeInsets.all(16.0),
-            border: InputBorder.none,
-            // suffixIcon: Icon(Icons.search),
-          ),
-          onChanged: (value) {
-            // Handle search input here
-          },
-          style: TextStyle(color: Colors.black),
-          cursorColor: Colors.white,
-          // Set overflow to visible
-        ),
-        
       ),
     );
   }
