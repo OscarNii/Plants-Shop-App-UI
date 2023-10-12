@@ -13,7 +13,7 @@ class Plants extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 200,
-      height: 440,
+      height: 390,
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
       margin: const EdgeInsets.only(right: 7, top: 5),
       decoration: BoxDecoration(
@@ -21,7 +21,7 @@ class Plants extends StatelessWidget {
           gradient: const LinearGradient(
             colors: [
               Color.fromARGB(126, 0, 0, 0),
-              Colors.black,
+              Colors.white,
             ],
           ),
           borderRadius: BorderRadius.circular(25)),
@@ -31,7 +31,7 @@ class Plants extends StatelessWidget {
           FadeInUp(
             child: Container(
               height: 250,
-              width: 200,
+              width: 300,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
                 image: const DecorationImage(
@@ -57,9 +57,9 @@ class Plants extends StatelessWidget {
                         backgroundColor:
                             const Color.fromARGB(211, 244, 240, 240),
                         padding: const EdgeInsets.all(15.0),
-                        fixedSize: const Size(130, 50),
+                        fixedSize: const Size(110, 50),
                         textStyle: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 15,
                         ),
 
                         shadowColor: Colors.grey,
@@ -71,7 +71,10 @@ class Plants extends StatelessWidget {
                         children: [
                           Text(
                             ' 10 Plants',
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(
+                                fontSize: 17,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -84,39 +87,28 @@ class Plants extends StatelessWidget {
           const SizedBox(height: 10),
           const Text(
             'Lucky Jade Plant',
-            style: TextStyle(color: Colors.white, fontSize: 17),
+            style: TextStyle(
+                color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 30),
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const SizedBox(width: 15),
               Text(
                 NumberFormat.simpleCurrency(locale: 'en-us', decimalDigits: 2)
                     .format(150.00),
                 style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: Stack(
-                  children: [
-                    const Row(
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: Colors.red,
-                        ),
-                        Text(
-                          '4.2',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    )
-                  ],
+              const CircleAvatar(
+                radius: 25,
+                backgroundColor: Colors.black,
+                child: Icon(
+                  Icons.favorite,
+                  color: Colors.white,
+                  size: 34,
                 ),
               ),
             ],

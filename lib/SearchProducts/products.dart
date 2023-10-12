@@ -29,63 +29,79 @@ class Products extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  height: 75,
-                  width: 330,
-                  child: TextField(
-                    style: TextStyle(color: Colors.black),
-                    decoration: InputDecoration(
-                      labelText: "Search Plants",
-                      labelStyle: TextStyle(color: Colors.black),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    height: 75,
+                    width: 330,
+                    child: TextField(
+                      style: TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        labelText: "Search Plants",
+                        labelStyle: TextStyle(color: Colors.black),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.search_off_rounded,
+                          color: Colors.black,
+                        ),
+                        hintMaxLines: 4,
                       ),
-                      prefixIcon: Icon(
-                        Icons.search_off_rounded,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.grey,
+                      child: Icon(
+                        Icons.settings,
                         color: Colors.black,
                       ),
-                      hintMaxLines: 4,
                     ),
-                  ),
+                  )
+                ],
+              ),
+              SizedBox(height: 20),
+              Text(
+                "Found",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: CircleAvatar(
-                    radius: 30,
-                    backgroundColor: Colors.grey,
-                    child: Icon(
-                      Icons.settings,
-                      color: Colors.black,
-                    ),
-                  ),
-                )
-              ],
-            ),
-            SizedBox(height: 20),
-            Text(
-              "Found",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
               ),
-            ),
-            Text(
-              "10 Results",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
+              Text(
+                "10 Results",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
               ),
-            ),
-            Plants(),
-          ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Plants(),
+                    Plants(),
+                  ],
+                ),
+              ),
+              SizedBox(height: 25),
+              Plants(),
+              SizedBox(height: 25),
+              Plants(),
+            ],
+          ),
         ),
       ),
     );
