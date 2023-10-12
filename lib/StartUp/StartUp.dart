@@ -26,14 +26,54 @@ class StartUp extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(height: 20),
           SmoothPageIndicator(
             controller: _controller,
             count: 4,
             effect: ExpandingDotsEffect(
               activeDotColor: Colors.black,
               dotColor: Colors.grey,
-              dotHeight: 30,
-              dotWidth: 20,
+              dotHeight: 10,
+              dotWidth: 10,
+            ),
+          ),
+          SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 50),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Enjoy your",
+                  style: TextStyle(color: Colors.grey, fontSize: 30),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Life With ",
+                      style: TextStyle(color: Colors.grey, fontSize: 30),
+                    ),
+                    Text(
+                      "PLANT",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 10),
+          CircleAvatar(
+            radius: 40,
+            backgroundColor: Colors.green,
+            child: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.white,
             ),
           )
         ],
