@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:plantshop/StartUp/StartUp.dart';
 
 import 'MyHomePage.dart';
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         pageTransitionType: PageTransitionType.leftToRightWithFade,
         splashIconSize: 300,
         backgroundColor: Colors.black,
-        nextScreen: const MyHomePage(),
+        nextScreen:  StartUp(),
         splash: Center(
           child: Image.asset("assets/Logo.png"),
         ),
