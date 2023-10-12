@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:plantshop/Pages/pages1.dart';
+import 'package:plantshop/SearchProducts/products.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class StartUp extends StatelessWidget {
@@ -75,12 +76,22 @@ class StartUp extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            CircleAvatar(
-              radius: 40,
-              backgroundColor: Colors.green,
-              child: Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Products(),
+                  ),
+                );
+              },
+              child: CircleAvatar(
+                radius: 40,
+                backgroundColor: Colors.green,
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white,
+                ),
               ),
             )
           ],
