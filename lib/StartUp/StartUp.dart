@@ -11,72 +11,80 @@ class StartUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 500,
-            child: PageView(
+      // appBar: AppBar(),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton(onPressed: () {}, child: Text("skip")),
+              ],
+            ),
+            SizedBox(
+              height: 500,
+              child: PageView(
+                controller: _controller,
+                children: [
+                  Pages1(),
+                  Pages1(),
+                  Pages1(),
+                  Pages1(),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            SmoothPageIndicator(
               controller: _controller,
-              children: [
-                Pages1(),
-                Pages1(),
-                Pages1(),
-                Pages1(),
-              ],
+              count: 4,
+              effect: ExpandingDotsEffect(
+                activeDotColor: Colors.black,
+                dotColor: Colors.grey,
+                dotHeight: 10,
+                dotWidth: 10,
+              ),
             ),
-          ),
-          SizedBox(height: 20),
-          SmoothPageIndicator(
-            controller: _controller,
-            count: 4,
-            effect: ExpandingDotsEffect(
-              activeDotColor: Colors.black,
-              dotColor: Colors.grey,
-              dotHeight: 10,
-              dotWidth: 10,
-            ),
-          ),
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.only(left: 50),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Enjoy your",
-                  style: TextStyle(color: Colors.grey, fontSize: 30),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Life With ",
-                      style: TextStyle(color: Colors.grey, fontSize: 30),
-                    ),
-                    Text(
-                      "PLANT",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(left: 50),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Enjoy your",
+                    style: TextStyle(color: Colors.grey, fontSize: 30),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Life With ",
+                        style: TextStyle(color: Colors.grey, fontSize: 30),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      Text(
+                        "PLANT",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 10),
-          CircleAvatar(
-            radius: 40,
-            backgroundColor: Colors.green,
-            child: Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.white,
-            ),
-          )
-        ],
+            SizedBox(height: 10),
+            CircleAvatar(
+              radius: 40,
+              backgroundColor: Colors.green,
+              child: Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.white,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
