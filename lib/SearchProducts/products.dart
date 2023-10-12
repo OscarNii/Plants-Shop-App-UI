@@ -10,9 +10,12 @@ class Products extends StatelessWidget {
         title: Text("Search Products"),
         //        leading: IconButton(),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
+          CircleAvatar(
+            backgroundColor: Colors.blueAccent,
+            child: IconButton(
+              onPressed: () {},
+              icon: Image.asset("name"),
+            ),
           ),
         ],
       ),
